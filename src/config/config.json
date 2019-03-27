@@ -1,0 +1,15 @@
+{
+  "environment": "development",
+  "hydra": {
+    "serviceName": "ticker2-service",
+    "serviceIP": "",
+    "servicePort": 3000,
+    "serviceType": "ticker2",
+    "serviceDescription": "Retrieves ticker stocks from Yahoo finance",
+    "redis": {
+      "url": "127.0.0.1",
+      "port": 6379,
+      "db": 15
+    }
+  }
+}

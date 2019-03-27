@@ -1,0 +1,41 @@
+{
+  "name": "ticker2",
+  "version": "0.0.1",
+  "author": "Remus Sepp <trxrse@gmail.com>",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf dist/ && babel src -d dist --copy-files --source-maps",
+    "serve": "yarn run build && node src/ticker2.js",
+    "debug": "node-debug ticker2.js --debug-brk",
+    "test": "echo \"Error: no test specified yet",
+    "watch": "nodemon -w src --exec yarn run serve",
+    "fix": "eslint src --fix",
+    "lint": "eslint src",
+    "precommit": "yarn run lint",
+    "docker": "node scripts/docker.js"
+  },
+  "engines": {
+    "node": ">=6.2.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.0",
+    "fwsp-config": "1.1.5",
+    "fwsp-server-response": "2.2.6",
+    "hydra-express": "1.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/register": "^7.4.0",
+    "chai": "3.5.0",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "3.2.0",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3",
+    "superagent": "3.5.2"
+  }
+}
