@@ -1,5 +1,4 @@
 import superagent from 'superagent';
-
 import { When, Then } from 'cucumber';
 
 let request;
@@ -7,11 +6,7 @@ let request;
 let result;
 /* eslint-enable no-unused-vars */
 let error;
-
-
-When(/^the client sends a GET request to \/stocks\/non-existent-company$/, function () {
-  request = superagent('GET', 'localhost:3000/stocks/non-existent-company');
-});
+let payload;
 
 When(/^the client sends a GET request to \/stocks\/daily$/, function () {
   request = superagent('GET', 'localhost:3000/stocks/daily');
@@ -29,14 +24,16 @@ When(/^sends the request$/, function (cb) {
     });
 });
 
-Then(/^the API should respond with a 404 HTTP status code$/, function () {
-  if (error.statusCode !== 404) {
+Then(/^the API should respond with a 400 HTTP status code$/, function () {
+  if (error.statusCode !== 400) {
     throw new Error();
   }
 });
 
 Then(/^the API should respond with a 200 HTTP status code$/, function (cb) {
-  cb(null, 'pending');
+  if (error.statusCode !== 400) {
+    throw new Error();
+  }
 });
 
 Then(/^the payload of the response should be a JSON object$/, function (cb) {
