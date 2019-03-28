@@ -22,9 +22,9 @@ const api = express.Router();
 api.get('/stocks/daily',
   (req, res) => {
     // res.sendOk({ greeting: 'Welcome to Hydra Express!' });
-    res.status(200).end();
-    // res.set('Content-Type', 'text/plain');
-    // res.json({ message: 'First response from my service' });
+    res.status(200);
+    res.set('Content-Type', 'application/json');
+    res.json({ message: 'First response from my service' });
   });
 
 module.exports = api;

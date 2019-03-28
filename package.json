@@ -21,7 +21,8 @@
     "@babel/polyfill": "^7.4.0",
     "fwsp-config": "1.1.5",
     "fwsp-server-response": "2.2.6",
-    "hydra-express": "1.7.0"
+    "hydra-express": "1.7.0",
+    "unirest": "^0.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

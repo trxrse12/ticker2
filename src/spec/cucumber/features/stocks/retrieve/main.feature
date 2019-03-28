@@ -8,3 +8,6 @@ Feature: Retrieve stocks by ID
     Then the API should respond with a 200 HTTP status code
     And the payload of the response should be a JSON object
     And the format should follow a typical ajv definition as per "ticker_response.js"
+
+
+
