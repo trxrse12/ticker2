@@ -27,10 +27,7 @@
       "type": "string"
     },
     "quotes": {
-      "type": "array",
-      "items": {
-        "$ref": "ticker2-stock-item"
-      }
+      "type": "array"
     }
   }
 }
