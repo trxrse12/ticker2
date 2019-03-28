@@ -3,6 +3,8 @@
 * @summary Ticker2 Hydra Express service entry point
 * @description Retrieves ticker stocks from Yahoo finance
 */
+
+require('dotenv').config();
 const config = require('fwsp-config');
 const hydraExpress = require('hydra-express');
 const { version } = require('../package.json');

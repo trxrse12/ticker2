@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "build": "rm -rf dist/ && babel src -d dist --copy-files --source-maps",
-    "serve": "yarn run build && node src/ticker2.js",
+    "serve": "yarn run build && dotenv node src/ticker2.js",
     "debug": "node-debug ticker2.js --debug-brk",
-    "test:e2e": "npx cucumber-js src/spec/cucumber/features --require-module @babel/register --require src/spec/cucumber/steps",
+    "test:e2e": "dotenv cucumber-js -- src/spec/cucumber/features --require-module @babel/register --require src/spec/cucumber/steps",
     "watch": "nodemon -w src --exec yarn run serve",
     "fix": "eslint src --fix",
     "lint": "eslint src",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
+    "dotenv-cli": "^2.0.0",
     "fwsp-config": "1.1.5",
     "fwsp-server-response": "2.2.6",
     "hydra-express": "1.7.0",
