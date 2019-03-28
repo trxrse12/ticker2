@@ -1,6 +1,8 @@
 import superagent from 'superagent';
 import { When, Then } from 'cucumber';
 
+
+
 /* eslint-disable no-unused-vars */
 let request;
 let result;
@@ -55,6 +57,6 @@ Then(/^the payload of the response should be a JSON object$/, function () {
 });
 
 
-Then(/^the format should follow a typical ajv definition as per "ticker_response.js"$/, function (cb) {
-  cb(null, 'pending');
+Then(/^the format should follow a typical ajv definition as per the response json spec file$/, function () {
+
 });

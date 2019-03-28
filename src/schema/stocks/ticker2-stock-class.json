@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "http://api.ticker2.ticker/schemas/stocks/ticker2-stock-class.json",
+  "title":"ticker2 retrieved stock schema",
+  "description": "TO validate the API provided answers in terms of movers stocks ticker",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "canonicalName": {
+      "type": "string"
+    },
+    "start": {
+      "type": "string"
+    },
+    "count": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string"
+    },
+    "quotes": {
+      "type": "array",
+      "items": {
+        "$ref": "ticker2-stock-item"
+      }
+    }
+  }
+}

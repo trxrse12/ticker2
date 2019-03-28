@@ -8,5 +8,6 @@
   ],
   "ignore": [
     "src/scripts/docker.js"
-  ]
+  ],
+  "plugins": ["inline-dotenv"]
 }

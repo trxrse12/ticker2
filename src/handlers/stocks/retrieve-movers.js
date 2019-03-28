@@ -1,18 +1,24 @@
-/* eslint-disable no-unused-vars */
-const unirest = require('unirest');
-const injectHandlerDependencies = require('../../utils/inject-handler-dependencies');
-
-/* eslint-enable no-unused-vars */
-
-function retrieveMovers(req, res) {
-  unirest.get(`${process.env.API_URL}/market/get-movers?region=US&lang=en`)
-    .header('X-RapidAPI-Key', process.env.API_KEY)
-    .end((result) => {
-      console.log(result.status, result.headers, result.body);
+function retrieveMoversHandler(req, res, db, retrieve, ValidationError) {
+  retrieve(req, db)
+    .then((result) => {
+      console.log(result)
+      res.status(200);
+      res.set('Content-Type', 'application/json');
+      res.json(result);
+    })
+    .catch((err) => {
+      if (err instanceof ValidationError) {
+        res.status(400);
+        res.set('Content-Type', 'application/json');
+        res.json({ message: err.message });
+      }
+      return undefined;
+    })
+    .catch(() => {
+      res.status(500);
+      res.set('Content-Type', 'application/json');
+      res.json({ message: 'Internal Server Error'});
     });
-  res.status(200);
-  res.set('Content-Type', 'application/json');
-  res.json({ message: 'First response from my service' });
 }
 
-module.exports = retrieveMovers;
+module.exports = retrieveMoversHandler;
