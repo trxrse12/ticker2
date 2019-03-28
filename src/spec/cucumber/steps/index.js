@@ -1,7 +1,9 @@
 import superagent from 'superagent';
 import { When, Then } from 'cucumber';
+import assert from 'assert';
 
-
+const Ajv = require('ajv');
+const tickerAnswerSchema = require('../../../schema/stocks/ticker2-answer');
 
 /* eslint-disable no-unused-vars */
 let request;
@@ -58,5 +60,9 @@ Then(/^the payload of the response should be a JSON object$/, function () {
 
 
 Then(/^the format should follow a typical ajv definition as per the response json spec file$/, function () {
-
+  const ajvValidate = new Ajv()
+    .addSchema([tickerAnswerSchema])
+    .compile(tickerAnswerSchema);
+  const valid = ajvValidate(payload);
+  assert.equal(valid, true);
 });
