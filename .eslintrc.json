@@ -18,5 +18,19 @@
     "rules": {
       "no-unused-vars": ["error", { "argsIgnorePattern":  "next"}],
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
-    }
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.test.js"
+            ],
+            "env": {
+                "mocha": true
+            },
+            "rules": {
+                "func-names": "off",
+                "prefer-arrow-callback": "off"
+            }
+        }
+    ]
 }

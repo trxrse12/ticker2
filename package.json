@@ -8,6 +8,8 @@
     "serve": "yarn run build && dotenv node src/ticker2.js",
     "debug": "node-debug ticker2.js --debug-brk",
     "test:e2e": "dotenv cucumber-js -- src/spec/cucumber/features --require-module @babel/register --require src/spec/cucumber/steps",
+    "test:unit": "mocha 'src/**/*.test.js' --require @babel/register",
+    "test": "yarn run test:unit && yarn run test:e2e",
     "watch": "nodemon -w src --exec yarn run serve",
     "fix": "eslint src --fix",
     "lint": "eslint src",
@@ -40,7 +42,7 @@
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "mocha": "3.2.0",
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
     "rimraf": "^2.6.3",
     "superagent": "^4.1.0"

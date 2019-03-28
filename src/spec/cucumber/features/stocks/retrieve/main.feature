@@ -9,5 +9,3 @@ Feature: Retrieve stocks by ID
     And the payload of the response should be a JSON object
     And the format should follow a typical ajv definition as per the response json spec file
 
-
-
